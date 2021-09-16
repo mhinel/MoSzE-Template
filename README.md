@@ -1,0 +1,2 @@
+# MoSzE
+Modern szoftverfejlesztési eszközök
