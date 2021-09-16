@@ -31,5 +31,7 @@ Elvárt funkciók:
 
 A további feladatok a template repó Readme-jében fognak megjelenni: https://github.com/SZE-MoSzE/MoSzE-Template#readme
 
+A feladatok megjelenésekor készülni fog 1-1 PR, így aki értesítést szeretne kapni róla, az kövesse be (watch) a template repót a megfelelő notification beállításokkal.
+
 A feladatokkal kapcsolatos kérdéseket is a template repóban, issue létrehozásával lehet feltenni.
 Saját kódra vonatkozó kérdéseket pedig a csapat repójának Feedback PR-jában vagy az adott feladathoz már létrehozott PR-ban.
