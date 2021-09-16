@@ -26,3 +26,10 @@ Elvárt funkciók:
   * `insert N rows/cols before/after X/Y` mint az `add`, csak megadott pozícióba szúrjon be
   * `exit` lépjen ki a program
   * Bármelyik műveletnél hibás koordináta vagy paraméter esetén írjon hibaüzenetet (nem kell minden lehetséges hibára felkészíteni, de azért legyen input ellenőrzés)
+
+### További feladatok
+
+A további feladatok a template repó Readme-jében fognak megjelenni: https://github.com/SZE-MoSzE/MoSzE-Template#readme
+
+A feladatokkal kapcsolatos kérdéseket is a template repóban, issue létrehozásával lehet feltenni.
+Saját kódra vonatkozó kérdéseket pedig a csapat repójának Feedback PR-jában vagy az adott feladathoz már létrehozott PR-ban.
