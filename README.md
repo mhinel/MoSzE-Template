@@ -34,7 +34,7 @@ Ezt is (és minden további feladatot) egy új branchen kell megoldani. Ha az el
 A feladatokat érdemes szétosztani a csapattagok között, ehhez lehet akár több külön branchet is létrehozni, de a végén 1 branchbe legyenek egyesítve, és abból készüljön egy PR. Ha az 1. feladatos branch még nem lett mergelve a mainbe, akkor ez lesz a PR target branch, különben a main.
 
 * A táblázatkezelő tudjon beolvasni egy táblázatot parancssori argumentumként megadott CSV fájlból ([példa](example.csv))
-  * Alapból a pontosvesszőt tekintse elválasztó karakternek, de egy opcionális `-sep` kapcsolóval meg lehessen adni más karaktert is, pl.: `./prog table.csv -sep ,`
+  * Alapból a pontosvesszőt tekintse elválasztó karakternek, de egy opcionális `-sep` kapcsolóval meg lehessen adni más karaktert is, pl.: `./prog table.csv -sep "&"`
   * Ha a fájl soraiban nem egyforma számú cellák vannak, a rövidebb sorok végei legyenek üres cellákkal kiegészítve
   * A cellák végén lévő whitespace-eket hagyja figyelmen kívül
 * A programban legyen egy `save filename.csv [-sep ,]` parancs, ami CSV fájlba írja ki az aktuális táblázatot
