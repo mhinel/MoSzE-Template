@@ -116,15 +116,33 @@ Az új funkcióhoz a tesztelő készítsen egységteszteket.
             * `updated++`
         3. Ha `updated == 0`, akkor a megmaradt függvényeket nem lehet kiértékelni, az eredményüket állítsuk a `#CYCLE!` szövegre
 
-## 5. feladat (határidő a PR nyitására: 11.17.)
+## 5. feladat (határidő a PR nyitására: 11.24.)
 
-## 6. feladat (határidő a PR nyitására: 11.24.)
+* Készüljön egy új, `barchart MN:XY filename` parancs a programban, ami a megadott tartományból előállít egy csoportosított oszlopdiagramot ábrázoló SVG ábrát
+  * A tartomány első oszlopában lévő cellák alkossák az X-tengely pontjainak feliratait, az első sor pedig az adatsorok neveit
+  * A kimenet legyen egy `filename.svg` ábra, vagy egy `filename.html` weblap egy beágyazott SVG-vel és a megjelenítésért felelős JS, CSS, stb. kóddal
+  * Az SVG elkészíthető saját implementációval vagy tetszőleges 3rd-party library-t / segédprogramot fel szabad hozzá használni
+* Készüljön egy Docker image, ami tartalmaz minden programot, amire szükség van a projekt fordításához, dokumentáció generálásához, program futtatásához
+  * A Dockerfile kerüljön be a csapat repójába, az image pedig legyen publikálva a Docker Hub-ra
+  * A GitHub Actions workflow használja ezt az image-et, és ne telepítsen semmilyen további csomagot
 
-### További feladatok
+## 6. feladat (határidő a PR nyitására: 12.01.)
 
-A további feladatok a template repó Readme-jében fognak megjelenni: https://github.com/SZE-MoSzE/MoSzE-Template#readme
+* A program tudjon kezelni több megnyitott táblázatot
+  * Megjelenítés:
+    * Egyszerre egy táblázat aktív, csak ennek a cellái jelennek meg
+    * Az aktív táblázat alatt legyenek listázva a megnyitott táblázatok indexei és nevei, az aktív táblázatot *-gal jelölve, pl.: `0: Nevek  1*: Cimek  2: Telefonszamok`
+  * Ha induláskor parancssori argumentumként megadott fájlból lett beolvasva a táblázat, akkor a neve legyen a fájlnév, ha üres táblázattal lett elindítva, akkor ennek a neve legyen `Table`
+  * A táblázatok közötti egymásra hivatkozásokat nem kell kezelni
+  * Új parancsok:
+    * `new sheet name` létrehoz egy új táblázatot a megadott névvel, és beállítja aktívnak
+    * `open filename [-sep ,]` létrehoz egy új táblázatot, betölti a megadott fájlból, a nevét beállítja a fájlnévre, és beállítja aktívnak
+    * `close N` bezárja az N indexű táblázatot, és felszabadítja az általa foglalt memóriát
+      * Az N-nél nagyobb indexű táblázatok indexe 1-gyel csökken
+      * Ha az utolsó megnyitott táblázat is be lett zárva, akkor lépjen ki a program
+    * `rename N newname` átnevezi az N indexű táblázatot a megadott új névre
+* A CI workflow egészüljön ki egy olyan teszttel, ami AddressSanitizer vagy Valgrind/Memcheck segítségével ellenőrzi, hogy nincs memóriaszivárgás vagy egyéb memóriahiba, és hiba esetén jelölje Failed-nek a workflow-t
 
-A feladatok megjelenésekor készülni fog 1-1 PR, így aki értesítést szeretne kapni róla, az kövesse be (watch) a template repót a megfelelő notification beállításokkal.
+### 7. feladat (TBD)
 
-A feladatokkal kapcsolatos kérdéseket is a template repóban a PR alatt, vagy issue létrehozásával lehet feltenni.
-Saját kódra vonatkozó kérdéseket pedig a csapat repójának Feedback PR-jában vagy az adott feladathoz már létrehozott PR-ban.
+További programozási feladat legfeljebb szorgalmiként, 5-ös megajánlott jegyért lesz, de a Makefile témakörhöz kapcsolódó kisebb feladat még várható.
