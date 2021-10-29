@@ -34,7 +34,7 @@ Ezt is (és minden további feladatot) egy új branchen kell megoldani. Ha az el
 A feladatokat érdemes szétosztani a csapattagok között, ehhez lehet akár több külön branchet is létrehozni, de a végén 1 branchbe legyenek egyesítve, és abból készüljön egy PR. Ha az 1. feladatos branch még nem lett mergelve a mainbe, akkor ez lesz a PR target branch, különben a main.
 
 * A táblázatkezelő tudjon beolvasni egy táblázatot parancssori argumentumként megadott CSV fájlból ([példa](example.csv))
-  * Alapból a pontosvesszőt tekintse elválasztó karakternek, de egy opcionális `-sep` kapcsolóval meg lehessen adni más karaktert is, pl.: `./prog table.csv -sep ,`
+  * Alapból a pontosvesszőt tekintse elválasztó karakternek, de egy opcionális `-sep` kapcsolóval meg lehessen adni más karaktert is, pl.: `./prog table.csv -sep "&"`
   * Ha a fájl soraiban nem egyforma számú cellák vannak, a rövidebb sorok végei legyenek üres cellákkal kiegészítve
   * A cellák végén lévő whitespace-eket hagyja figyelmen kívül
 * A programban legyen egy `save filename.csv [-sep ,]` parancs, ami CSV fájlba írja ki az aktuális táblázatot
@@ -59,6 +59,26 @@ A feladatokat érdemes szétosztani a csapattagok között, ehhez lehet akár t�
 * Készüljön egy [GitHub Actions Workflow](https://docs.github.com/en/actions):
   * Minden push eseményre fordítsa le a kódot és végezzen egy input/output tesztet
   * Legyen egy `input.txt` fájl, ami a felhasználó által bevitt parancsokat tartalmazza, és egy elvárt kimenet, amivel összehasonlítja a program által kiírt szöveget
+
+### 3. feladat (határidő a PR nyitására: 10.27.)
+
+Dokumentáció:
+* A függvények és osztályok legyenek ellátva Doxygen kommentekkel, ez a későbbi feladatokra is vonatkozik
+* A GitHub Actions workflow-ba kerüljön bele egy új job, ami Doxygennel automatikusan legenerálja a dokumentációt, és artifactokként elérhetővé teszi HTML-ben és PDF-ben
+  * A runnerre a szükséges előfeltételeket csomagkezelőből lehet telepíteni, pl.: `run: sudo apt install doxygen graphviz texlive`
+
+Új funkciók:
+* `sort by X/Y [asc/desc (default: asc)]` rendezze a táblázat sorait a megadott oszlop szerint (vagy oszlopait a megadott sor szerint) növekvő/csökkenő sorrendbe
+  * A szöveges cellák string-összehasonlítással, a numerikus cellák számérték alapján legyenek összehasonlítva, egy szöveges és egy numerikus cella közül pedig mindig a szöveg a "kisebb"
+    * pl.: `"" < "Abc" < "Abcd" < "Bcd" < 0 < .5 < 4 < 11 < 100.1`
+  * Nem kell automatikusan újra rendezni a tartalom változása esetén
+* `swap MN XY` felcseréli a megadott két cella tartalmát
+* `align XY left/right` beállítja, hogy balra/jobbra igazítva legyen megjelenítve a cella tartalma
+  * A cellák kezdeti igazítása tetszőlegesen megválasztható
+* Range műveletek:
+  * Az `MN:XY` formában megadott cellatartomány két szemközti sarka `MN` és `XY`, pl. az ábrán kijelölt range megadható úgy, hogy `B2:D4`, `D4:B2`, `B4:D2`, vagy `D2:B4` ![Range example](range.png)
+  * `align MN:XY left/right` egyszerre több cellának állítja be az igazítását
+  * `clear MN:XY` üresre állítja a cellák tartalmát
 
 ### További feladatok
 
