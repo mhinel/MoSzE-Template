@@ -101,6 +101,7 @@ Az új funkcióhoz a tesztelő készítsen egységteszteket.
     * `MIN` minimum
     * `MAX` maximum
 * A paraméter egy tartomány, ennek nem kell változnia, ha törlésre kerülnek hivatkozott cellák, ha érvénytelen a tartomány (pl. mert kilóg a táblázatból), akkor jelenjen meg a cellában a `#NAME?` szöveg
+* A `sort by` parancsnak nem kell a számított értéket figyelembe vennie a rendezésnél vagy frissítenie a tartomány koordinátáit.
 * A tartományban szereplő nem-numerikus cellákat (amire az `std::stof` exceptiont dob, és nem függvényt tartalmaz) hagyja figyelmen kívül a függvény, tehát pl. az átlag nevezőjébe ne számítsanak bele
 * A számított értékek fixen 3 tizedesjegy pontossággal jelenjenek meg (`std::cout << std::fixed << std::setprecision(3)`)
 * A függvényt tartalmazó cellák fájlba mentésnél is képletként legyenek mentve, és fájlbetöltés után is működjenek
