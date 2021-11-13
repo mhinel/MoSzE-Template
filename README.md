@@ -88,34 +88,20 @@ A 3 feladat mindegyikéhez legyen 1-1 különböző csapattag kijelölve felelő
 
 A tesztelő feladata ellenőrizni a helyes működést, manuális és automatikus tesztek elvégzésével. A code reviewer feladata a kódminőség ellenőrzése és javítása. Először ő írjon code review-t, és csak utána legyek én felkérve review-ra (@oliverosz).
 
-## 4. feladat (határidő a PR nyitására: 11.17.)
+## 4. feladat (határidő a PR nyitására: 11.24.)
 
 Az új funkcióhoz a tesztelő készítsen egységteszteket.
 
 Új funkció: aggregátor függvények támogatása
 
-* Ha egy cellába a user egy aggregátor függvényt ír, pl.:`=SUM(MN:XY)`, akkor megjelenítésnél a függvény eredménye jelenjen meg a cellában
+* `set AB FUNCTION(MN:XY)`: A megadott aggregátor függvény eredménye kerüljön be az `AB` koordinátájú cellába
   * Aggregátor függvények:
     * `SUM` összeg
     * `AVG` átlag
     * `MIN` minimum
     * `MAX` maximum
-* A paraméter egy tartomány, ennek nem kell változnia, ha törlésre kerülnek hivatkozott cellák, ha érvénytelen a tartomány (pl. mert kilóg a táblázatból), akkor jelenjen meg a cellában a `#NAME?` szöveg
-* A `sort by` parancsnak nem kell a számított értéket figyelembe vennie a rendezésnél vagy frissítenie a tartomány koordinátáit.
-* A tartományban szereplő nem-numerikus cellákat (amire az `std::stof` exceptiont dob, és nem függvényt tartalmaz) hagyja figyelmen kívül a függvény, tehát pl. az átlag nevezőjébe ne számítsanak bele
-* A számított értékek fixen 3 tizedesjegy pontossággal jelenjenek meg (`std::cout << std::fixed << std::setprecision(3)`)
-* A függvényt tartalmazó cellák fájlba mentésnél is képletként legyenek mentve, és fájlbetöltés után is működjenek
-* A megadott tartományban is lehetnek függvényt tartalmazó cellák, ekkor azok számított értékét használja (ezt érdemes a cella eredeti szöveges tartalmától független módon tárolni)
-  * Ha körkörös hivatkozás van, akkor a körben résztvevő cellákban a `#CYCLE!` szöveg jelenjen meg
-  * Egy lehetséges megoldás vázlata:
-    1. Minden XY cellára: `evaluated[XY] = true`
-    2. Minden XY cellára, ami függvényt tartalmaz: `evaluated[XY] = false`
-    3. Amíg van XY cella, amire `!evaluated[XY]`:
-        1. `updated = 0`
-        2. Minden XY cellát, amire `!evaluated[XY]`, de a hivatkozott tartományában minden cella `evaluated`:
-            * Értékeljük ki a függvényt és `evaluated[XY] = true`
-            * `updated++`
-        3. Ha `updated == 0`, akkor a megmaradt függvényeket nem lehet kiértékelni, az eredményüket állítsuk a `#CYCLE!` szövegre
+* A tartományban szereplő nem-numerikus cellákat (amire az `std::stof` exceptiont dob) hagyja figyelmen kívül a függvény, tehát pl. az átlag nevezőjébe ne számítsanak bele
+* Az eredmény fixen 3 tizedesjegy pontossággal kerüljön a cellába (`std::fixed` és `std::setprecision(3)`)
 
 ## 5. feladat (határidő a PR nyitására: 11.24.)
 
