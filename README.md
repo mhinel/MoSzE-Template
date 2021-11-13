@@ -88,7 +88,7 @@ A 3 feladat mindegyikéhez legyen 1-1 különböző csapattag kijelölve felelő
 
 A tesztelő feladata ellenőrizni a helyes működést, manuális és automatikus tesztek elvégzésével. A code reviewer feladata a kódminőség ellenőrzése és javítása. Először ő írjon code review-t, és csak utána legyek én felkérve review-ra (@oliverosz).
 
-## 4. feladat (határidő a PR nyitására: 11.17.)
+## 4. feladat (határidő a PR nyitására: 11.24.)
 
 Az új funkcióhoz a tesztelő készítsen egységteszteket.
 
