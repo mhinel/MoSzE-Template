@@ -137,6 +137,7 @@ Az új funkcióhoz a tesztelő készítsen egységteszteket.
   * A táblázatok közötti egymásra hivatkozásokat nem kell kezelni
   * Új parancsok:
     * `new sheet name` létrehoz egy új táblázatot a megadott névvel, és beállítja aktívnak
+    * `switch N` beállítja az N indexű táblázatot aktívnak
     * `open filename [-sep ,]` létrehoz egy új táblázatot, betölti a megadott fájlból, a nevét beállítja a fájlnévre, és beállítja aktívnak
     * `close N` bezárja az N indexű táblázatot, és felszabadítja az általa foglalt memóriát
       * Az N-nél nagyobb indexű táblázatok indexe 1-gyel csökken
