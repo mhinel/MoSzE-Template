@@ -2,7 +2,7 @@
 
 ### 0. Feladat: Ennek a felsorolásnak a felülírása a következő adatokkal:
 
-1. csapattag neve és GitHub felhasználóneve
+1. Hinel Marcell, mhinel
 2. csapattag neve és GitHub felhasználóneve
 3. csapattag neve és GitHub felhasználóneve
 4. csapattag neve és GitHub felhasználóneve
